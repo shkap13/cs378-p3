@@ -3,6 +3,43 @@
   Below, you can see an example of a class called "menu" that changes the color of the text to blue. Modify according to your needs.
 */
 
-.menu {
-  color: blue;
+.unique-title{
+  font-family: 'Snell Roundhand'
+}
+
+.other-title{
+  /* font-family: 'URW Chancery L'; */
+  font-family: Papyrus;
+}
+
+.food-title{
+  font-weight: 900;
+  font-family: 'Gill Sans';
+}
+
+.food-description{
+  font-weight: light;
+  /* font-style: italic; */
+  font-family: 'Gill Sans';
+
+}
+
+.food-price{
+  font-weight: 600;
+  display: flex;
+  text-align: center;
+  font-family: 'Gill Sans';
+}
+
+.my-image{
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10%;
+
+}
+
+.btn{
+  border-radius: 50%;
+  color:black;
 }
