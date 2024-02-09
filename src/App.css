@@ -13,14 +13,14 @@
 }
 
 .food-title{
-  font-weight: 900;
-  font-family: 'Gill Sans';
+  font-weight: 1000;
+  font-family: 'papyrus';
 }
 
 .food-description{
   font-weight: light;
-  /* font-style: italic; */
-  font-family: 'Gill Sans';
+  font-style: italic;
+  font-family: 'papyrus';
 
 }
 
@@ -28,7 +28,7 @@
   font-weight: 600;
   display: flex;
   text-align: center;
-  font-family: 'Gill Sans';
+  font-family: 'URW Chancery L';
 }
 
 .my-image{
@@ -39,7 +39,7 @@
 
 }
 
-.btn{
+/* .btn{
   border-radius: 50%;
   color:black;
-}
+} */

@@ -18,7 +18,7 @@ const MenuItem = ({ item }) => {
 
             <div className="row mb-2">
                 <div className="col-5 d-flex justify-content-center text-center">
-                <img src={img_location} alt="" className="img-fluid my-image"/>
+                <img src={img_location} alt={item.description} className="img-fluid my-image"/>
                 </div>
 
                 <div className="col-7">
@@ -38,7 +38,7 @@ const MenuItem = ({ item }) => {
                     </div>
 
                     <div className="col-6">
-                    <button type="button" className="btn btn-success">Add</button>
+                    <button type="button" id="btn" className="btn btn-success">Add</button>
                     </div>
 
                 </div>

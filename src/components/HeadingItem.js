@@ -13,7 +13,7 @@ const HeadingItem = ({ item }) => {
             <div className="container">
                 <div className="row mb">
                     <div className="col-12 d-flex justify-content-center text-center">
-                    <img src="" alt={item.capt_one} className="img-fluid"/>
+                    <img src="./images/title.png" alt="Tastes Like Tokyo with Sakura Tree" className="img-fluid"/>
                     </div>
                 </div>
 
@@ -38,9 +38,6 @@ const HeadingItem = ({ item }) => {
                 </div>
             </div>
 
-            <div className="row mb-5">
-
-            </div>
         </div>
     );
 };
