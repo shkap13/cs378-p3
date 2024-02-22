@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../App.css";
+import CartItem from "./CartItem.js";
 
 
 
@@ -9,6 +10,17 @@ import "../App.css";
 // Hint: You can use the image name to get the image from the images folder.
 const MenuItem = ({ item }) => {
     const img_location = "./images/" + item.imageName
+    const [count, setCount] = useState(0)
+
+    const add_count = () => {
+        setCount(count+1)
+    }
+
+    const dec_count = () => {
+        if(count > 0){
+            setCount(count-1)
+        }
+    }
     return (
     <div className="container mb-2">
         <body>
@@ -22,26 +34,28 @@ const MenuItem = ({ item }) => {
                 </div>
 
                 <div className="col-7">
-                <div className="row">
-                    <div className="food-title">
-                    <h3> {item.title}</h3>
-                    </div>
+                    <div className="row">
+                        <div className="food-title">
+                        <h3> {item.title}</h3>
+                        </div>
 
-                    <div className="food-description">
-                    <p> {item.description} </p>
-                    </div>
+                        <div className="food-description">
+                        <p> {item.description} </p>
+                        </div>
 
-                    <div className="col-6">
-                    <div className="price">
-                        <p>{item.price}</p>
-                    </div>
-                    </div>
+                        <div className="col-5">
+                            <div className="food-price">
+                                <p>{item.price}</p>
+                            </div>
+                        </div>
 
-                    <div className="col-6">
-                    <button type="button" id="btn" className="btn btn-success">Add</button>
-                    </div>
+                        <div className="col-7" style={{display: 'flex', alignItems:'center', justifyContent: 'space-evenly'}}>
+                            <button type="button" className="addrm" onClick={add_count}>+</button>
+                            <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{count}</h4>
+                            <button type="button" className="addrm" onClick={dec_count}>-</button>
+                        </div>
 
-                </div>
+                     </div>
                 </div>
 
             </div>

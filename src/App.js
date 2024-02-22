@@ -2,6 +2,7 @@ import './App.css';
 import MenuItem from './components/MenuItem';
 import MenuContainer from './components/MenuContainer'
 import HeadingItem from './components/HeadingItem';
+import CartItem from './components/CartItem';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
@@ -98,6 +99,8 @@ function render_menu_items(){
 
 function App() {
 
+  const total_sum = 0;
+
   return (
     <div>
       {/* <Heading heading = {heading_item} /> */}
@@ -108,6 +111,9 @@ function App() {
         {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
         <MenuContainer menu_items_array={menuItems} /> 
 
+      </div>
+      <div className='cart'>
+        {/* <CartItem cart /> */}
       </div>
     </div>
   );

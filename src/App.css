@@ -28,7 +28,7 @@
   font-weight: 600;
   display: flex;
   text-align: center;
-  font-family: 'URW Chancery L';
+  font-family: 'Geneva';
 }
 
 .my-image{
@@ -39,7 +39,20 @@
 
 }
 
-/* .btn{
-  border-radius: 50%;
-  color:black;
-} */
+.addrm{
+  border: none;
+  border-radius: 100%;
+  color:green;
+  background-color: lightgray;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-weight: bolder;
+}
+
+.cart_panel{
+  position:fixed;
+  text-align: center;
+  padding: auto;
+  background-color: aliceblue;
+  display: flex;
+}
