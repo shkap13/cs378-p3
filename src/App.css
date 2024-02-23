@@ -51,8 +51,26 @@
 
 .cart_panel{
   position:fixed;
-  text-align: center;
+  top: 90%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
   padding: auto;
-  background-color: aliceblue;
-  display: flex;
+  display: flex; 
+  background-color:aliceblue;
+  text-align: center;
+  justify-content: space-evenly;
+  font-family: monospace;
+  align-items: center;
+}
+
+.pill{
+  border: none;
+  border-radius: 49%;
+  background-color:cadetblue;
+  text-align: center;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }

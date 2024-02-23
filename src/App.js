@@ -1,5 +1,4 @@
 import './App.css';
-import MenuItem from './components/MenuItem';
 import MenuContainer from './components/MenuContainer'
 import HeadingItem from './components/HeadingItem';
 import CartItem from './components/CartItem';
@@ -83,23 +82,23 @@ const menuItems = [
 ];
 
 const h_item = {
-  imageName: 'katsu-curry.png',
   capt_one: 'Real and Authentic Japanese Food',
   capt_two: 'Looks Good and Tastes Better',
 };
 
-function render_menu_items(){
-  if(menuItems.length > 0){
-    return menuItems.map((menu_item, index) =>(
-      <MenuItem key={index} item={menu_item} />
-    ));
-  }
-}
+// function render_menu_items(){
+//   if(menuItems.length > 0){
+//     return menuItems.map((menu_item, index) =>(
+//       <MenuItem key={index} item={menu_item} />
+//     ));
+//   }
+// }
+
+// const [total_sum, update_sum] = useState(0);
+let total_sum = 0;
 
 
 function App() {
-
-  const total_sum = 0;
 
   return (
     <div>
@@ -112,8 +111,8 @@ function App() {
         <MenuContainer menu_items_array={menuItems} /> 
 
       </div>
-      <div className='cart'>
-        {/* <CartItem cart /> */}
+      <div className="cart">
+        <CartItem price={total_sum}/> 
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "../App.css";
-import CartItem from "./CartItem.js";
 
 
 
@@ -22,46 +21,46 @@ const MenuItem = ({ item }) => {
         }
     }
     return (
-    <div className="container mb-2">
-        <body>
-            <div className="row mb-5">
+        <div className="container mb-2">
+            <body>
+                <div className="row mb-5">
 
-            </div>
-
-            <div className="row mb-2">
-                <div className="col-5 d-flex justify-content-center text-center">
-                <img src={img_location} alt={item.description} className="img-fluid my-image"/>
                 </div>
 
-                <div className="col-7">
-                    <div className="row">
-                        <div className="food-title">
-                        <h3> {item.title}</h3>
-                        </div>
+                <div className="row mb-2">
+                    <div className="col-5 d-flex justify-content-center text-center">
+                    <img src={img_location} alt={item.description} className="img-fluid my-image"/>
+                    </div>
 
-                        <div className="food-description">
-                        <p> {item.description} </p>
-                        </div>
-
-                        <div className="col-5">
-                            <div className="food-price">
-                                <p>{item.price}</p>
+                    <div className="col-7">
+                        <div className="row">
+                            <div className="food-title">
+                            <h3> {item.title}</h3>
                             </div>
-                        </div>
 
-                        <div className="col-7" style={{display: 'flex', alignItems:'center', justifyContent: 'space-evenly'}}>
-                            <button type="button" className="addrm" onClick={add_count}>+</button>
-                            <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{count}</h4>
-                            <button type="button" className="addrm" onClick={dec_count}>-</button>
-                        </div>
+                            <div className="food-description">
+                            <p> {item.description} </p>
+                            </div>
 
-                     </div>
+                            <div className="col-5">
+                                <div className="food-price">
+                                    <p>{item.price}</p>
+                                </div>
+                            </div>
+
+                            <div className="col-7" style={{display: 'flex', alignItems:'center', justifyContent: 'space-evenly'}}>
+                                <button type="button" className="addrm" onClick={add_count}>+</button>
+                                <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{count}</h4>
+                                <button type="button" className="addrm" onClick={dec_count}>-</button>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
+            </body>
 
-            </div>
-        </body>
-
-    </div>
+        </div>
     );
 };
 

@@ -7,7 +7,7 @@ import "../App.css";
 // Use bootstrap to style the elements so that it looks like the mockup in the assignment.
 // Hint: You can use the image name to get the image from the images folder.
 const HeadingItem = ({ item }) => {
-    const img_location = "./images/" + item.imageName
+    // const img_location = "./images/" + item.imageName
     return (
         <div className='container'>
             <div className="container">
