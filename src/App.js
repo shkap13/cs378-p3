@@ -2,8 +2,6 @@ import './App.css';
 import React, { useState } from 'react';
 import MenuContainer from './components/MenuContainer'
 import HeadingItem from './components/HeadingItem';
-
-
 import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
 // Menu data. An array of objects where each object represents a menu item. Each menu item has an id, title, description, image name, and price.
@@ -132,7 +130,27 @@ function App() {
   // };
 
   const handle_order = () => {
-    alert("Your ordered has been processed with....")
+    let is_empty = true;
+    let orders = "The order for the following items has been placed: \n";
+
+    updated_menu_items.forEach((item) => {
+      if(item.quantity > 0){
+        is_empty = false;
+        let num = item.quantity;
+        let food = " " + item.title;
+
+        orders = orders + "        " + num + food + '\n';
+      }
+    });
+
+    if(is_empty === true){
+      orders = "Your cart is empty :(";
+    }
+    else{
+      orders = orders + "Enjoy your food!";
+    }
+
+    alert(orders);
   };
 
   const handle_clear = () => {
