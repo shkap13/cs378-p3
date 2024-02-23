@@ -100,6 +100,7 @@ function App() {
       sum = sum + (m_item.price * m_item.quantity)
     });
 
+    sum = sum.toFixed(2);
     set_total_sum(sum);
   };
 
@@ -183,7 +184,7 @@ function App() {
       {/* <CartItem total_sum={total_sum} /> */}
           <div>
             <div className='cart_panel'>
-                <h4>Subtotal: {total_sum} </h4>
+                <h4>Subtotal: ${total_sum} </h4>
                 <button type='button' className='pill' onClick={handle_order}> Order </button>
                 <button type='button' className='pill' onClick={handle_clear}> Clear All </button>
             </div>

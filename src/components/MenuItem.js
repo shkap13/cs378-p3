@@ -75,9 +75,9 @@ const MenuItem = ({ item , handle_quantity_update}) => {
                             </div>
 
                             <div className="col-7" style={{display: 'flex', alignItems:'center', justifyContent: 'space-evenly'}}>
-                                <button type="button" className="addrm" onClick={add_count}>+</button>
-                                <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{item.quantity}</h4>
                                 <button type="button" className="addrm" onClick={dec_count}>-</button>
+                                <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{item.quantity}</h4>
+                                <button type="button" className="addrm" onClick={add_count}>+</button>
                             </div>
 
                         </div>
