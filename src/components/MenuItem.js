@@ -7,22 +7,48 @@ import "../App.css";
 // Modify the component to take in all the other properties of a menu item you need and display them in the component.
 // Use bootstrap to style the elements so that it looks like the mockup in the assignment.
 // Hint: You can use the image name to get the image from the images folder.
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item , handle_quantity_update}) => {
     const img_location = "./images/" + item.imageName
-    const [count, setCount] = useState(0)
+    // const [count, setCount] = useState(0)
 
     const add_count = () => {
-        setCount(count+1)
-    }
+        // console.log("updated from add !!");
+        // console.log("count is now: " + count);
+        handle_quantity_update({
+            id: item.id, 
+            title: item.title, 
+            description: item.description, 
+            imageName: item.imageName,
+            price: item.price,
+            quantity: (item.quantity+1)
+        });
+        // setCount(count+1);
+    };
 
     const dec_count = () => {
-        if(count > 0){
-            setCount(count-1)
+        // console.log("updated form dec!");
+        // console.log("count is now: " + count);
+        if(item.quantity > 0){
+            handle_quantity_update({
+                id: item.id, 
+                title: item.title, 
+                description: item.description, 
+                imageName: item.imageName,
+                price: item.price,
+                quantity: (item.quantity-1)
+            });
+            // setCount(count-1);
         }
-    }
+
+    };
+
+    // const reset_count = () => {
+    //     setCount(0);
+    // }
+
     return (
         <div className="container mb-2">
-            <body>
+            <div>
                 <div className="row mb-5">
 
                 </div>
@@ -50,7 +76,7 @@ const MenuItem = ({ item }) => {
 
                             <div className="col-7" style={{display: 'flex', alignItems:'center', justifyContent: 'space-evenly'}}>
                                 <button type="button" className="addrm" onClick={add_count}>+</button>
-                                <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{count}</h4>
+                                <h4 style={{fontFamily: 'Geneva', display: 'flex'}}>{item.quantity}</h4>
                                 <button type="button" className="addrm" onClick={dec_count}>-</button>
                             </div>
 
@@ -58,7 +84,7 @@ const MenuItem = ({ item }) => {
                     </div>
 
                 </div>
-            </body>
+            </div>
 
         </div>
     );

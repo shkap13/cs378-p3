@@ -1,7 +1,7 @@
 import './App.css';
+import React, { useState } from 'react';
 import MenuContainer from './components/MenuContainer'
 import HeadingItem from './components/HeadingItem';
-import CartItem from './components/CartItem';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
@@ -81,24 +81,74 @@ const menuItems = [
   }
 ];
 
+
+
 const h_item = {
   capt_one: 'Real and Authentic Japanese Food',
   capt_two: 'Looks Good and Tastes Better',
 };
 
-// function render_menu_items(){
-//   if(menuItems.length > 0){
-//     return menuItems.map((menu_item, index) =>(
-//       <MenuItem key={index} item={menu_item} />
-//     ));
-//   }
-// }
-
-// const [total_sum, update_sum] = useState(0);
-let total_sum = 0;
-
-
 function App() {
+  const menu_items_with_quant = menuItems.map(item => ({...item, quantity: 0}));
+
+  const [total_sum, set_total_sum] = useState(0);
+  const [updated_menu_items, set_updated_menu_items] = useState(menu_items_with_quant);
+
+  const calculate_sum = (updating_items) => {
+    let sum = 0;
+    updating_items.forEach((m_item) => {
+      // console.log("price: " + m_item.price);
+      // console.log("quantity: " + m_item.quantity);
+      sum = sum + (m_item.price * m_item.quantity)
+    });
+
+    set_total_sum(sum);
+  };
+
+  const handle_quantity_update = (new_menu_item) => {
+
+    set_updated_menu_items((updated_menu_items) => {
+      // console.log("from handle_quantity_update, new quantity and new id: " + new_menu_item.quantity + " , " + new_menu_item.id);
+      let index = updated_menu_items.findIndex((item) => item.id === new_menu_item.id);
+      let updating_items = [...updated_menu_items];
+      updating_items[index] = new_menu_item;
+
+      // console.log(updating_items[index]);
+      calculate_sum(updating_items);
+
+      return updating_items;
+    });
+  };
+
+  // const handle_quantity_update = (new_menu_item) => {
+  //    console.log("from handle_quantity_update, new quantity and new id: " + new_menu_item.quantity + " , " + new_menu_item.id);
+  //   let index = updated_menu_items.findIndex((item) => item.id === new_menu_item.id);
+  //   let updating_items = [...updated_menu_items];
+  //   updating_items[index] = new_menu_item;
+
+  //    // console.log(updating_items[index]);
+  //   calculate_sum(updating_items);
+  //   set_updated_menu_items(updating_items);
+  // };
+
+  const handle_order = () => {
+    alert("Your ordered has been processed with....")
+  };
+
+  const handle_clear = () => {
+    set_updated_menu_items((updated_menu_items) => {
+      // console.log("from handle_quantity_update, new quantity and new id: " + new_menu_item.quantity + " , " + new_menu_item.id);
+      let updating_items = [...updated_menu_items];
+      updating_items.forEach((m_item) => {
+        m_item.quantity = 0;
+      });
+      
+      set_total_sum(0);
+
+      return updating_items;
+    });
+  };
+
 
   return (
     <div>
@@ -108,11 +158,18 @@ function App() {
       </div>
       <div className="menu">
         {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
-        <MenuContainer menu_items_array={menuItems} /> 
+        <MenuContainer menu_items_array={updated_menu_items} handle_quantity_update={handle_quantity_update}/> 
 
       </div>
       <div className="cart">
-        <CartItem price={total_sum}/> 
+      {/* <CartItem total_sum={total_sum} /> */}
+          <div>
+            <div className='cart_panel'>
+                <h4>Subtotal: {total_sum} </h4>
+                <button type='button' className='pill' onClick={handle_order}> Order </button>
+                <button type='button' className='pill' onClick={handle_clear}> Clear All </button>
+            </div>
+          </div>
       </div>
     </div>
   );
